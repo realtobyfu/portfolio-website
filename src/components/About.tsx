@@ -28,9 +28,8 @@ const About = () => {
             About Me
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-            I'm a Computer Science student at Tufts University with experience in full-stack 
-            development, mobile apps, and startup environments. Currently working on Karma Farm 
-            and Vybes App.
+            Recent graduate from Tufts University with experience in full-stack 
+            development, mobile apps, and startup environments. Currently working on Karma Farm.
           </p>
         </div>
 

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -12,14 +11,14 @@ const Hero = () => {
   
   const phases = [
     {
-      font: "font-serif font-bold",
-      gradient: "bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x"
+      font: "font-arvo italic",
+      gradient: "bg-gradient-to-r from-emerald-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent animate-gradient-x"
     },
     {
-      font: "font-mono font-semibold",
-      gradient: "bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 bg-clip-text text-transparent animate-gradient-x"
+      font: "font-urbanist font-bold",
+      gradient: "bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent animate-gradient-x"
     }
-  ];
+  ];  
   
   useEffect(() => {
     if (animationComplete) return;
@@ -107,20 +106,22 @@ const Hero = () => {
           </div>
           
           <div className="flex justify-center space-x-6 mb-16">
-            <a href="#" className="text-gray-400 hover:text-emerald-600 transition-colors duration-300">
+            <a href="https://github.com/realtobyfu" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-600 transition-colors duration-300" aria-label="Github">
               <Github size={24} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-emerald-600 transition-colors duration-300">
+            <a href="https://linkedin.com/in/tobiasfu" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-600 transition-colors duration-300" aria-label="LinkedIn">
               <Linkedin size={24} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-emerald-600 transition-colors duration-300">
+            <a href="mailto:3tobiasfu@gmail.com" className="text-gray-400 hover:text-emerald-600 transition-colors duration-300" aria-label="Email">
               <Mail size={24} />
             </a>
           </div>
         </div>
         
         <div className="animate-bounce">
-          <ChevronDown className="text-gray-400 mx-auto" size={32} />
+          <a href="#about" aria-label="Scroll to About section">
+            <ChevronDown className="text-gray-400 mx-auto" size={32} />
+          </a>
         </div>
       </div>
     </section>
