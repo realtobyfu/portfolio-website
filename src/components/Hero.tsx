@@ -7,20 +7,23 @@ const Hero = () => {
   const [currentPhase, setCurrentPhase] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
+  const [animationComplete, setAnimationComplete] = useState(false);
   const fullText = "Tobias Fu";
   
   const phases = [
     {
-      font: "font-arvo italic",
-      gradient: "bg-gradient-to-r from-emerald-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent animate-gradient-x"
+      font: "font-serif font-bold",
+      gradient: "bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x"
     },
     {
-      font: "font-urbanist font-bold",
-      gradient: "bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent animate-gradient-x"
+      font: "font-mono font-semibold",
+      gradient: "bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 bg-clip-text text-transparent animate-gradient-x"
     }
   ];
   
   useEffect(() => {
+    if (animationComplete) return;
+
     const typeText = () => {
       let index = 0;
       setDisplayText("");
@@ -31,9 +34,15 @@ const Hero = () => {
           index++;
         } else {
           clearInterval(timer);
-          // Wait 2 seconds before moving to next phase or restarting
+          // Wait 2 seconds before moving to next phase
           setTimeout(() => {
-            setCurrentPhase((prev) => (prev + 1) % phases.length);
+            if (currentPhase === phases.length - 1) {
+              // Animation complete, stay on final phase
+              setAnimationComplete(true);
+              setShowCursor(false);
+            } else {
+              setCurrentPhase((prev) => prev + 1);
+            }
           }, 2000);
         }
       }, 150);
@@ -43,15 +52,17 @@ const Hero = () => {
 
     const timer = typeText();
     return () => clearInterval(timer);
-  }, [currentPhase]);
+  }, [currentPhase, animationComplete]);
 
   useEffect(() => {
+    if (animationComplete) return;
+
     const cursorTimer = setInterval(() => {
       setShowCursor(prev => !prev);
     }, 500);
 
     return () => clearInterval(cursorTimer);
-  }, []);
+  }, [animationComplete]);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-6 bg-gradient-to-br from-emerald-50 to-purple-50">
@@ -63,7 +74,7 @@ const Hero = () => {
             >
               {displayText}
             </span>
-            {showCursor && (
+            {!animationComplete && showCursor && (
               <span className="animate-pulse text-emerald-600">|</span>
             )}
             

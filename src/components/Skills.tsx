@@ -5,19 +5,50 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Frontend",
-      skills: ["React.js", "TypeScript", "JavaScript", "Swift/SwiftUI", "React Native", "Tailwind CSS", "Styled Components"]
+      skills: [
+        { name: "React.js", level: 90 },
+        { name: "TypeScript", level: 85 },
+        { name: "JavaScript", level: 88 },
+        { name: "Swift/SwiftUI", level: 75 },
+        { name: "React Native", level: 80 },
+        { name: "Tailwind CSS", level: 85 },
+        { name: "Styled Components", level: 70 }
+      ]
     },
     {
       title: "Backend",
-      skills: ["Node.js", "Express.js", "NestJS", "Python", "Flask", "Java", "Spring Framework"]
+      skills: [
+        { name: "Node.js", level: 85 },
+        { name: "Express.js", level: 80 },
+        { name: "NestJS", level: 75 },
+        { name: "Python", level: 82 },
+        { name: "Flask", level: 70 },
+        { name: "Java", level: 78 },
+        { name: "Spring Framework", level: 72 }
+      ]
     },
     {
       title: "Databases",
-      skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Supabase"]
+      skills: [
+        { name: "PostgreSQL", level: 85 },
+        { name: "MongoDB", level: 80 },
+        { name: "MySQL", level: 82 },
+        { name: "Redis", level: 75 },
+        { name: "Supabase", level: 78 }
+      ]
     },
     {
       title: "Tools & Design",
-      skills: ["Git", "Figma", "VS Code", "Docker", "AWS", "Vercel", "Linear", "GitHub Copilot"]
+      skills: [
+        { name: "Git", level: 90 },
+        { name: "Figma", level: 85 },
+        { name: "VS Code", level: 88 },
+        { name: "Docker", level: 75 },
+        { name: "AWS", level: 70 },
+        { name: "Vercel", level: 80 },
+        { name: "Linear", level: 85 },
+        { name: "GitHub Copilot", level: 82 }
+      ]
     }
   ];
 
@@ -44,8 +75,11 @@ const Skills = () => {
               </h3>
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skill} className="flex items-center justify-between">
-                    <span className="text-gray-700 font-medium">{skill}</span>
+                  <div key={skill.name} className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-700 font-medium">{skill.name}</span>
+                    </div>
+                    <Progress value={skill.level} className="h-2" />
                   </div>
                 ))}
               </div>
