@@ -5,75 +5,74 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution built with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
+      title: "Write-It-Down",
+      description: "A SwiftUI journaling app with 4.8-star App Store rating. Features custom visualization components with smooth animations and offline-first architecture.",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
+      technologies: ["Swift", "SwiftUI", "Supabase", "CoreData"],
+      liveUrl: "https://apps.apple.com/us/app/write-it-down/id6742731898",
+      githubUrl: "#"
+    },
+    {
+      title: "Karma Farm",
+      description: "Cross-platform location-based service app built with React Native. Leading development as founding software engineer with Redux state management.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      technologies: ["React Native", "TypeScript", "Redux", "Styled Components"],
       liveUrl: "#",
       githubUrl: "#"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
-      technologies: ["Vue.js", "Express", "Socket.io", "MongoDB"],
+      title: "Project Board",
+      description: "Web platform connecting CS students for collaborative projects. Built with Express.js backend and Next.js frontend using monorepo architecture.",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+      technologies: ["Next.js", "Node.js", "Supabase", "TypeScript"],
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "https://github.com/realtobyfu/project-board"
     },
     {
-      title: "Portfolio Website",
-      description: "A responsive portfolio website showcasing my work and skills. Built with modern web technologies and optimized for performance.",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      title: "ProustGPT",
+      description: "Sophisticated RAG pipeline with React.js frontend and Flask backend. Improved response accuracy by 40% through intelligent context retrieval.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+      technologies: ["React.js", "Python", "Flask", "Tailwind CSS"],
       liveUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      title: "Data Visualization Dashboard",
-      description: "An interactive dashboard for visualizing complex data sets with various chart types and real-time updates.",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80",
-      technologies: ["Next.js", "D3.js", "Python", "FastAPI"],
-      liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "https://github.com/realtobyfu/proust-gpt"
     }
   ];
 
   return (
-    <section id="projects" className="py-20 px-6">
-      <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Featured <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Projects</span>
+    <section id="projects" className="py-24 px-6 bg-white">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
+            Featured Projects
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Here are some of my recent projects that showcase my skills and creativity
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
+            Recent projects showcasing my development skills and creativity
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-12">
           {projects.map((project, index) => (
             <div 
               key={index}
-              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
             >
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+                  className="w-full h-48 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-slate-300 mb-4 leading-relaxed">{project.description}</p>
+              <div className="p-8">
+                <h3 className="text-xl font-medium text-gray-900 mb-3">{project.title}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, techIndex) => (
                     <span 
                       key={techIndex}
-                      className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-blue-300 text-sm rounded-full border border-blue-500/30"
+                      className="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm rounded-full border border-emerald-200"
                     >
                       {tech}
                     </span>
@@ -84,7 +83,7 @@ const Projects = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="border-slate-600 text-slate-300 hover:bg-slate-700"
+                    className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
                   >
                     <ExternalLink size={16} className="mr-2" />
                     Live Demo
@@ -92,7 +91,7 @@ const Projects = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="border-slate-600 text-slate-300 hover:bg-slate-700"
+                    className="border-gray-300 text-gray-600 hover:bg-gray-50"
                   >
                     <Github size={16} className="mr-2" />
                     Code
