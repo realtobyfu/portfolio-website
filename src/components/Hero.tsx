@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -36,11 +37,7 @@ const Hero = () => {
         <div className="animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-light mb-8 text-gray-900 relative group cursor-pointer">
             <span 
-              className="bg-gradient-to-r from-emerald-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent bg-size-200 animate-gradient-x hover:scale-105 transition-transform duration-300 inline-block"
-              style={{
-                backgroundSize: '200% 200%',
-                animation: 'gradient-x 3s ease infinite'
-              }}
+              className="bg-gradient-to-r from-emerald-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 inline-block animate-gradient-x"
             >
               {displayText}
             </span>
@@ -93,29 +90,6 @@ const Hero = () => {
           <ChevronDown className="text-gray-400 mx-auto" size={32} />
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes gradient-x {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        
-        .animation-delay-300 {
-          animation-delay: 300ms;
-        }
-        
-        .animation-delay-500 {
-          animation-delay: 500ms;
-        }
-        
-        .animation-delay-700 {
-          animation-delay: 700ms;
-        }
-      `}</style>
     </section>
   );
 };
