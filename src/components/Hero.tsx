@@ -4,24 +4,46 @@ import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const [currentPhase, setCurrentPhase] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const fullText = "Tobias Fu";
   
+  const phases = [
+    {
+      font: "font-arvo italic",
+      gradient: "bg-gradient-to-r from-emerald-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent animate-gradient-x"
+    },
+    {
+      font: "font-urbanist font-bold",
+      gradient: "bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent animate-gradient-x"
+    }
+  ];
+  
   useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setDisplayText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-        setShowCursor(false);
-      }
-    }, 150);
+    const typeText = () => {
+      let index = 0;
+      setDisplayText("");
+      
+      const timer = setInterval(() => {
+        if (index <= fullText.length) {
+          setDisplayText(fullText.slice(0, index));
+          index++;
+        } else {
+          clearInterval(timer);
+          // Wait 2 seconds before moving to next phase or restarting
+          setTimeout(() => {
+            setCurrentPhase((prev) => (prev + 1) % phases.length);
+          }, 2000);
+        }
+      }, 150);
 
+      return timer;
+    };
+
+    const timer = typeText();
     return () => clearInterval(timer);
-  }, []);
+  }, [currentPhase]);
 
   useEffect(() => {
     const cursorTimer = setInterval(() => {
@@ -37,7 +59,7 @@ const Hero = () => {
         <div className="animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-light mb-8 text-gray-900 relative group cursor-pointer">
             <span 
-              className="bg-gradient-to-r from-emerald-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 inline-block animate-gradient-x"
+              className={`${phases[currentPhase].font} ${phases[currentPhase].gradient} hover:scale-105 transition-transform duration-300 inline-block`}
             >
               {displayText}
             </span>
