@@ -63,6 +63,15 @@ const Hero = () => {
     return () => clearInterval(cursorTimer);
   }, [animationComplete]);
 
+  // Add smooth scroll handler
+  const handleScrollToAbout = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-6 bg-gradient-to-br from-emerald-50 to-purple-50">
       <div className="container mx-auto text-center max-w-4xl">
@@ -119,9 +128,9 @@ const Hero = () => {
         </div>
         
         <div className="animate-bounce">
-          <a href="#about" aria-label="Scroll to About section">
+          <button onClick={handleScrollToAbout} aria-label="Scroll to About section" className="focus:outline-none">
             <ChevronDown className="text-gray-400 mx-auto" size={32} />
-          </a>
+          </button>
         </div>
       </div>
     </section>
