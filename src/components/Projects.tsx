@@ -40,8 +40,8 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-24 px-6 bg-white">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-20">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
             Featured Projects
           </h2>
@@ -50,56 +50,58 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {projects.map((project, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
-              </div>
-              
-              <div className="p-8">
-                <h3 className="text-xl font-medium text-gray-900 mb-3">{project.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+        <div className="overflow-x-auto pb-4">
+          <div className="flex gap-8 w-max">
+            {projects.map((project, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 w-80 flex-shrink-0"
+              >
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-36 object-cover"
+                  />
+                </div>
                 
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex}
-                      className="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm rounded-full border border-emerald-200"
+                <div className="p-6">
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">{project.title}</h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed text-sm line-clamp-3">{project.description}</p>
+                  
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span 
+                        key={techIndex}
+                        className="px-2 py-1 bg-emerald-50 text-emerald-700 text-xs rounded-full border border-emerald-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex gap-3">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 text-xs"
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex gap-4">
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
-                  >
-                    <ExternalLink size={16} className="mr-2" />
-                    Live Demo
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="border-gray-300 text-gray-600 hover:bg-gray-50"
-                  >
-                    <Github size={16} className="mr-2" />
-                    Code
-                  </Button>
+                      <ExternalLink size={14} className="mr-1" />
+                      Live Demo
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="border-gray-300 text-gray-600 hover:bg-gray-50 text-xs"
+                    >
+                      <Github size={14} className="mr-1" />
+                      Code
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
