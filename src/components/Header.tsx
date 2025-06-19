@@ -18,7 +18,7 @@ const Header = () => {
     <header className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-blue-500">
+          <div className="text-2xl font-bold text-orange-500">
             Tobias Fu
           </div>
           
