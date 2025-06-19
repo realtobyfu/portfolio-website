@@ -39,33 +39,33 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 bg-white">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
+    <section id="projects" className="py-16 px-4 bg-white">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
             Recent projects showcasing my development skills and creativity
           </p>
         </div>
 
         <div className="overflow-x-auto pb-4">
-          <div className="flex gap-8 w-max">
+          <div className="flex gap-6 w-max">
             {projects.map((project, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 w-80 flex-shrink-0"
+                className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 w-72 flex-shrink-0"
               >
                 <div className="relative overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-36 object-cover"
+                    className="w-full h-32 object-cover"
                   />
                 </div>
                 
-                <div className="p-6">
+                <div className="p-5">
                   <h3 className="text-lg font-medium text-gray-900 mb-2">{project.title}</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed text-sm line-clamp-3">{project.description}</p>
                   

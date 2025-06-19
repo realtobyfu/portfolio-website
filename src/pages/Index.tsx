@@ -6,10 +6,12 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FloatingGeometry from "@/components/FloatingGeometry";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      <FloatingGeometry />
       <Header />
       <Hero />
       <Projects />
