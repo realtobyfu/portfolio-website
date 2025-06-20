@@ -1,90 +1,118 @@
 
-import { Code2, Palette, Rocket } from "lucide-react";
+import { MapPin, Camera, BookOpen, Heart } from "lucide-react";
 
 const About = () => {
-  const highlights = [
-    {
-      icon: Code2,
-      title: "Full-Stack Development",
-      description: "Building end-to-end solutions with React, Swift, and Node.js."
-    },
-    {
-      icon: Palette,
-      title: "UI/UX Design",
-      description: "Creating intuitive interfaces with focus on user experience."
-    },
-    {
-      icon: Rocket,
-      title: "Mobile Apps",
-      description: "Developing native iOS apps and cross-platform solutions."
-    }
-  ];
-
   return (
-    <section id="about" className="py-24 px-6 bg-white">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
-            About Me
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-            Recent graduate from Tufts University with experience in full-stack 
-            development, mobile apps, and startup environments. Currently working on Karma Farm.
+    <div className="min-h-screen py-12 px-6">
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-light text-stone-800 mb-4">About</h1>
+          <p className="text-xl text-stone-600">
+            A photographer's journey through time, memory, and light
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12 mb-20">
-          {highlights.map((item, index) => (
-            <div 
-              key={index}
-              className="text-center group"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                <item.icon className="text-white" size={24} />
-              </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{item.description}</p>
-            </div>
-          ))}
+        {/* Main Content */}
+        <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=600&q=80"
+              alt="About"
+              className="w-full h-96 object-cover rounded-lg shadow-lg"
+            />
+          </div>
+          
+          <div className="space-y-6">
+            <h2 className="text-3xl font-light text-stone-800">The Journey</h2>
+            <p className="text-stone-600 leading-relaxed">
+              Obsessed with the life and works of Marcel Proust, I set out to experience firsthand what inspired 
+              the legendary writer's greatest works. My journey led me to the little French town of Illiers-Combray, 
+              which Proust visited during his childhood and which sets the scene for much of his novel "In Search of Lost Time."
+            </p>
+            <p className="text-stone-600 leading-relaxed">
+              Through my lens, I seek to capture not just images, but the essence of time itself—the way light 
+              falls across ancient stones, the whisper of memory in sacred spaces, and the eternal dance between 
+              presence and remembrance.
+            </p>
+          </div>
         </div>
 
-        <div className="bg-gradient-to-r from-emerald-50 to-purple-50 p-12 rounded-3xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-medium text-gray-900 mb-6">My Journey</h3>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Currently studying Computer Science at Tufts University with a 3.53 GPA. 
-                I've led development teams at Develop for Good and am now founding engineer 
-                at Karma Farm while working full-stack at Vybes App.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                My apps have reached thousands of users, including Write-It-Down with a 
-                4.8-star App Store rating. I'm passionate about creating tools that make 
-                people's lives better.
-              </p>
+        {/* Philosophy */}
+        <div className="bg-stone-50 rounded-lg p-8 mb-16">
+          <h2 className="text-3xl font-light text-stone-800 mb-6 text-center">Philosophy</h2>
+          <blockquote className="text-xl font-light text-stone-700 italic text-center max-w-3xl mx-auto">
+            "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes."
+            <footer className="text-lg text-stone-500 mt-4 not-italic">— Marcel Proust</footer>
+          </blockquote>
+          <p className="text-stone-600 text-center mt-6 max-w-2xl mx-auto">
+            This quote guides my work. Each photograph is an attempt to see familiar places with fresh eyes, 
+            to find the extraordinary hidden within the ordinary.
+          </p>
+        </div>
+
+        {/* Stats/Info */}
+        <div className="grid md:grid-cols-4 gap-8 text-center mb-16">
+          <div className="group">
+            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition-colors">
+              <Camera className="w-8 h-8 text-amber-700" />
             </div>
-            <div className="grid grid-cols-2 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-light text-emerald-600">15+</div>
-                <div className="text-gray-500">Projects Built</div>
+            <h3 className="text-2xl font-light text-stone-800">500+</h3>
+            <p className="text-stone-600">Photographs</p>
+          </div>
+          
+          <div className="group">
+            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition-colors">
+              <MapPin className="w-8 h-8 text-amber-700" />
+            </div>
+            <h3 className="text-2xl font-light text-stone-800">25</h3>
+            <p className="text-stone-600">Locations</p>
+          </div>
+          
+          <div className="group">
+            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition-colors">
+              <BookOpen className="w-8 h-8 text-amber-700" />
+            </div>
+            <h3 className="text-2xl font-light text-stone-800">12</h3>
+            <p className="text-stone-600">Blog Posts</p>
+          </div>
+          
+          <div className="group">
+            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition-colors">
+              <Heart className="w-8 h-8 text-amber-700" />
+            </div>
+            <h3 className="text-2xl font-light text-stone-800">∞</h3>
+            <p className="text-stone-600">Passion</p>
+          </div>
+        </div>
+
+        {/* Equipment */}
+        <div className="text-center">
+          <h2 className="text-3xl font-light text-stone-800 mb-8">Equipment</h2>
+          <div className="bg-white rounded-lg p-8 shadow-sm border border-stone-200">
+            <div className="grid md:grid-cols-2 gap-8 text-left">
+              <div>
+                <h3 className="text-xl font-medium text-stone-800 mb-4">Camera Bodies</h3>
+                <ul className="space-y-2 text-stone-600">
+                  <li>Canon EOS R5</li>
+                  <li>Canon EOS 5D Mark IV</li>
+                  <li>Leica M10-P (for street photography)</li>
+                </ul>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-light text-emerald-600">3.53</div>
-                <div className="text-gray-500">GPA at Tufts</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-light text-emerald-600">4.8★</div>
-                <div className="text-gray-500">App Store Rating</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-light text-emerald-600">2025</div>
-                <div className="text-gray-500">Graduation</div>
+              <div>
+                <h3 className="text-xl font-medium text-stone-800 mb-4">Lenses</h3>
+                <ul className="space-y-2 text-stone-600">
+                  <li>Canon RF 24-70mm f/2.8L IS USM</li>
+                  <li>Canon RF 85mm f/1.2L USM</li>
+                  <li>Canon RF 16-35mm f/2.8L IS USM</li>
+                  <li>Leica Summicron-M 50mm f/2</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
