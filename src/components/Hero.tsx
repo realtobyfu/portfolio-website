@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [currentPhase, setCurrentPhase] = useState(0);
@@ -99,16 +100,19 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button 
-              size="lg" 
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full transition-all duration-300"
-            >
-              View My Work
-            </Button>
+            <Link to="/work">
+              <Button 
+                size="lg" 
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
+              >
+                View My Work
+              </Button>
+            </Link>
             <Button 
               variant="outline" 
               size="lg"
-              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-full transition-all duration-300"
+              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
+              onClick={() => window.open('#', '_blank')}
             >
               Download CV
             </Button>
